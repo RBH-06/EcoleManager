@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="227" height="248"><svg xmlns="http://www.w3.org/2000/svg" width="227" height="248" fill="none" viewBox="0 0 227 248">
+  <path fill="#3FB3EF" d="m61.663 19.5 51.5-19.5 49 19.5c1.6 1.2.666 2.5 0 3l-49 20.5-51.5-20.5c-1.2-.8-.5-2.333 0-3Z"></path>
+  <path fill="#fff" d="M2 39.744c65.2-11.722 102.5 16.932 113 32.724l-.5 175.341c-2.8 0-6.5-1.628-8-2.442-20.8-26.569-77.333-34.84-103-35.654-2 0-3.167-2.279-3.5-3.419V42.186c0-.781 1.333-1.953 2-2.442Z"></path>
+  <path fill="#fff" d="M225 39.744c-65.2-11.722-102.5 16.932-113 32.724l.5 175.341c2.8 0 6.5-1.628 8-2.442 20.8-26.569 77.333-34.84 103-35.654 2 0 3.167-2.279 3.5-3.419V42.186c0-.781-1.333-1.953-2-2.442Z"></path>
+  <g filter="url(#a)">
+    <path fill="#2FBB88" d="M146 155h11v48h-11z"></path>
+  </g>
+  <circle cx="144.5" cy="116.5" r="11.5" fill="#2FBB88"></circle>
+  <rect width="38" height="37" x="125" y="131" fill="#2FBB88" rx="10"></rect>
+  <path fill="#2FBB88" d="M132 162h11v48h-11z"></path>
+  <path fill="#2FBB88" d="M139 162h13v10h-13zm-7 53.5V208l10.5-2.5v4.5l-10.5 5.5Zm14-7.5v-6l11-.5v1.5l-11 5Z"></path>
+  <g filter="url(#b)">
+    <path fill="#2FBB88" d="M191 153h11v38h-11z"></path>
+  </g>
+  <circle cx="189.5" cy="114.5" r="11.5" fill="#2FBB88"></circle>
+  <rect width="38" height="37" x="170" y="129" fill="#2FBB88" rx="10"></rect>
+  <path fill="#2FBB88" d="M177 160h11v31h-11z"></path>
+  <path fill="#2FBB88" d="M184 160h13v10h-13zm-7 35.5V190l11-.5v4.5l-11 1.5Zm14-1.5v-3.5l11-.5v3l-11 1Z"></path>
+  <path fill="#2983CD" d="M20 193.383v-141c63.2-4.4 87.667 30.167 92 48v129.5c-25.6-29.6-72-36.666-92-36.5Z"></path>
+  <path fill="#fff" d="M28 155c0-7.18 5.82-13 13-13h21c7.18 0 13 5.82 13 13v17H28v-17Z"></path>
+  <circle cx="52" cy="121" r="14" fill="#fff"></circle>
+  <path stroke="#fff" stroke-width="4" d="M58 93c8 .667 26.3 6.1 35.5 22.5-4.333 3-10.4 10.1 0 14.5-4.833 3.667-11.6 12.3 0 17.5"></path>
+  <path fill="#1B5573" d="M114.272 18c-3.2.4-2.333 2.5-1.5 3.5l21.5 7.5c3.2.8 4.667 2.667 5 3.5V60c-3.6 4-1.5 6.333 0 7 2 .8 3.833.333 4.5 0 4-3.2 1.333-6-.5-7V35c0-4.4-2.667-6.833-4-7.5l-25-9.5ZM140 87.826c-.8 2.4-3 .667-4-.5 0-4.4 1.333-10.833 2-13.5 1.2-1.2 4.167-.833 5.5-.5 1.2-.4 2.167 8.5 2.5 13 .4 2.4-1.5 2.333-2.5 2-2 0-1.833-6.667-1.5-10 0-.8-.667-.667-1-.5l-1 10Z"></path>
+  <defs>
+    <filter id="SvgjsFilter1016" width="19" height="56" x="142" y="155" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix>
+      <feOffset dy="4"></feOffset>
+      <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+      <feComposite in2="hardAlpha" operator="out"></feComposite>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_3_43"></feBlend>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_3_43" result="shape"></feBlend>
+    </filter>
+    <filter id="SvgjsFilter1015" width="19" height="46" x="187" y="153" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix>
+      <feOffset dy="4"></feOffset>
+      <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+      <feComposite in2="hardAlpha" operator="out"></feComposite>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_3_43"></feBlend>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_3_43" result="shape"></feBlend>
+    </filter>
+  </defs>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
