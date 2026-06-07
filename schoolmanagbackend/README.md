@@ -1,47 +1,47 @@
-# Training School Management System – Backend API
+# Système de Gestion d'École de Formation – API Backend
 
-## Overview
+## Présentation
 
-This is the backend API for the Training School Management System. It provides endpoints for authentication, user, student, teacher, training, class, session, enrollment, attendance, and payment management.
+Ceci est l'API backend pour le Système de Gestion d'École de Formation. Elle fournit des points de terminaison (endpoints) pour la gestion de l'authentification, des utilisateurs, des étudiants, des professeurs, des formations, des classes, des sessions, des inscriptions, des présences et des paiements.
 
-- **Base URL:** `http://localhost:3000/api/`
-- **Authentication:** JWT (token in `Authorization: Bearer <token>` header)
-- **Database:** PostgreSQL (Dockerized)
+- **URL de base :** `http://localhost:3000/api/`
+- **Authentification :** JWT (jeton dans l'en-tête `Authorization: Bearer <token>`)
+- **Base de données :** PostgreSQL (Dockerisé)
 
 ---
 
-## Getting Started
+## Pour commencer
 
-### 1. Environment Setup
-- Copy `.env.example` to `.env` and adjust values if needed.
-- Ensure your Postgres Docker container is running and accessible at the credentials in `.env`.
+### 1. Configuration de l'environnement
+- Copiez le fichier `.env.example` et renommez-le en `.env`, puis ajustez les valeurs si nécessaire.
+- Assurez-vous que votre conteneur Docker Postgres est en cours d'exécution et accessible avec les identifiants présents dans `.env`.
 
-### 2. Install Dependencies
+### 2. Installation des dépendances
 ```sh
 npm install
 ```
 
-### 3. Run Database Migration
-- Connect to your Postgres database and run the migration script:
+### 3. Exécuter la migration de la base de données
+- Connectez-vous à votre base de données Postgres et exécutez le script de migration :
 
-**Using psql:**
+**En utilisant psql :**
 ```sh
 psql -h localhost -U admin -d schoolmanagement -f db_schema.sql
 ```
-- Enter your password (`admin`) when prompted.
+- Entrez votre mot de passe (`admin`) lorsque vous y êtes invité.
 
-### 4. Start the Server
+### 4. Démarrer le serveur
 ```sh
 npm start
 ```
 
 ---
 
-## Authentication
+## Authentification
 
-- **Register (Admin only, first time):**  
+- **Inscription (Admin uniquement, première fois) :**  
   `POST /api/auth/register`  
-  ```json
+```json
   {
     "email": "admin@school.com",
     "password": "password123",
@@ -52,59 +52,59 @@ npm start
   }
   ```
 
-- **Login:**  
+- **Connexion :**  
   `POST /api/auth/login`  
-  ```json
+```json
   {
     "email": "admin@school.com",
     "password": "password123"
   }
   ```
-  **Response:**  
-  ```json
+  **Réponse :**  
+```json
   {
     "token": "<JWT_TOKEN>",
     "user": { ... }
   }
   ```
 
-- Use the returned `token` in the `Authorization` header for all protected endpoints.
+- Utilisez le `token` retourné dans l'en-tête `Authorization` pour tous les points de terminaison protégés.
 
 ---
 
-## User Roles
+## Rôles des Utilisateurs
 
-- **admin**: Full access (manage users, students, teachers, trainings, classes, etc.)
-- **subadmin**: Limited management access
-- **teacher**: Access to their classes, students, attendance
-- **student**: Access to their own profile, enrollments, attendance, payments
+- **admin** : Accès complet (gérer les utilisateurs, étudiants, professeurs, formations, classes, etc.)
+- **subadmin** : Accès de gestion limité
+- **teacher** (professeur) : Accès à ses classes, ses étudiants, ses présences
+- **student** (étudiant) : Accès à son propre profil, ses inscriptions, ses présences, ses paiements
 
 ---
 
-## Key Endpoints
+## Points de terminaison (Endpoints) principaux
 
-### Users (Admin only)
-- `POST /api/users` – Create subadmin/teacher/student
-- `GET /api/users` – List users
-- `GET /api/users/:id` – Get user by ID
-- `PUT /api/users/:id` – Update user
-- `DELETE /api/users/:id` – Delete user
+### Utilisateurs (Admin uniquement)
+- `POST /api/users` – Créer un subadmin/teacher/student
+- `GET /api/users` – Lister les utilisateurs
+- `GET /api/users/:id` – Obtenir un utilisateur par son ID
+- `PUT /api/users/:id` – Mettre à jour un utilisateur
+- `DELETE /api/users/:id` – Supprimer un utilisateur
 
-### Students
+### Étudiants
 - `POST /api/students`
 - `GET /api/students`
 - `GET /api/students/:id`
 - `PUT /api/students/:id`
 - `DELETE /api/students/:id`
 
-### Teachers
+### Professeurs
 - `POST /api/teachers`
 - `GET /api/teachers`
 - `GET /api/teachers/:id`
 - `PUT /api/teachers/:id`
 - `DELETE /api/teachers/:id`
 
-### Trainings
+### Formations
 - `POST /api/trainings`
 - `GET /api/trainings`
 - `GET /api/trainings/:id`
@@ -125,21 +125,21 @@ npm start
 - `PUT /api/sessions/:id`
 - `DELETE /api/sessions/:id`
 
-### Enrollments
+### Inscriptions
 - `POST /api/enrollments`
 - `GET /api/enrollments`
 - `GET /api/enrollments/:id`
 - `PUT /api/enrollments/:id`
 - `DELETE /api/enrollments/:id`
 
-### Attendance
+### Présences
 - `POST /api/attendance`
 - `GET /api/attendance`
 - `GET /api/attendance/:id`
 - `PUT /api/attendance/:id`
 - `DELETE /api/attendance/:id`
 
-### Payments
+### Paiements
 - `POST /api/payments`
 - `GET /api/payments`
 - `GET /api/payments/:id`
@@ -148,7 +148,7 @@ npm start
 
 ---
 
-## Common Headers
+## En-têtes Communs
 
 ```http
 Authorization: Bearer <JWT_TOKEN>
@@ -157,22 +157,23 @@ Content-Type: application/json
 
 ---
 
-## Error Handling
+## Gestion des erreurs
 
-- All errors return JSON with a `message` field.
-- 401: Unauthorized (invalid/missing token)
-- 403: Forbidden (insufficient permissions)
-- 404: Not found
-- 400: Validation errors
-
----
-
-## Notes
-
-- All dates should be in ISO 8601 format (`YYYY-MM-DD`).
-- IDs are UUIDs.
-- For relationships (e.g., enrollments), use the referenced entity’s ID.
+- Toutes les erreurs retournent un JSON avec un champ `message`.
+- 401 : Non autorisé (token invalide/manquant)
+- 403 : Interdit (permissions insuffisantes)
+- 404 : Introuvable
+- 400 : Erreurs de validation
 
 ---
 
-For any questions about endpoints, required fields, or authentication, please contact the backend team.
+## Remarques
+
+- Toutes les dates doivent être au format ISO 8601 (`YYYY-MM-DD`).
+- Les ID sont des UUID.
+- Pour les relations (par ex. les inscriptions), utilisez l'ID de l'entité référencée.
+
+---
+
+Pour toute question concernant les endpoints, les champs requis ou l'authentification, veuillez contacter l'équipe backend.
+````</JWT_TOKEN></JWT_TOKEN>
