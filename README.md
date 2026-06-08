@@ -1,6 +1,6 @@
 # 🏫 EcoleManager
  
-Application de gestion scolaire avec interface desktop **Tkinter**, backend **Django REST** et base de données **PostgreSQL**.
+Application de gestion scolaire avec interface desktop **Tkinter**, backend **Django REST, javascript** et base de données **PostgreSQL**.
  
 ---
  
@@ -21,7 +21,7 @@ Application de gestion scolaire avec interface desktop **Tkinter**, backend **Dj
 | Couche | Technologie |
 |---|---|
 | Interface | Python · Tkinter |
-| Backend | Python · Django · Django REST Framework |
+| Backend | Python · Django · Javascript · Django REST Framework |
 | Base de données | PostgreSQL · PLpgSQL |
  
 ---
