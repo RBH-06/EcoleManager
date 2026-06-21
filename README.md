@@ -8,11 +8,11 @@ Application de gestion scolaire avec interface desktop **Tkinter**, backend **Dj
 
 | Module | Détail |
 |---|---|
-| 👨‍🎓 Élèves | Inscription, profil, suivi |
-| 👩‍🏫 Enseignants | Gestion du personnel |
-| 🏛️ Classes & Matières | Organisation pédagogique |
-| 📊 Notes | Saisie et consultation |
-| 🔐 Authentification | Rôles admin / enseignant / élève |
+| Élèves | Inscription, profil, suivi |
+| Enseignants | Gestion du personnel |
+| Classes & Matières | Organisation pédagogique |
+| Notes | Saisie et consultation |
+| Authentification | Rôles admin / enseignant / élève |
 
 ---
 
