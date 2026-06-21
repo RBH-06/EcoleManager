@@ -115,7 +115,3 @@ git commit -m "feat: description"
 git push origin feature/ma-fonctionnalite
 # → Ouvrir une Pull Request
 ```
-
----
-
-> Développé par [RBH-06](https://github.com/RBH-06) · Licence MIT
