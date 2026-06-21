@@ -114,4 +114,3 @@ git checkout -b feature/ma-fonctionnalite
 git commit -m "feat: description"
 git push origin feature/ma-fonctionnalite
 # → Ouvrir une Pull Request
-```
