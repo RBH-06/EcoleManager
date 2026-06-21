@@ -1,6 +1,6 @@
 # 🏫 EcoleManager
 
-Application de gestion scolaire avec interface desktop **Tkinter**, backend **Django REST, javascript** et base de données **PostgreSQL**.
+Application de gestion scolaire avec interface desktop **Tkinter**, backend **Node.js / Express** et base de données **PostgreSQL**.
 
 ---
 
@@ -10,9 +10,10 @@ Application de gestion scolaire avec interface desktop **Tkinter**, backend **Dj
 |---|---|
 | Élèves | Inscription, profil, suivi |
 | Enseignants | Gestion du personnel |
-| Classes & Matières | Organisation pédagogique |
-| Notes | Saisie et consultation |
-| Authentification | Rôles admin / enseignant / élève |
+| Classes & Sessions | Organisation pédagogique |
+| Inscriptions & Présences | Suivi des élèves |
+| Paiements | Gestion des paiements par session |
+| Authentification | Rôles admin / subadmin / enseignant / élève (JWT) |
 
 ---
 
@@ -20,9 +21,11 @@ Application de gestion scolaire avec interface desktop **Tkinter**, backend **Dj
 
 | Couche | Technologie |
 |---|---|
-| Interface | Python · Tkinter |
-| Backend | Python · Django · Javascript · Django REST Framework |
-| Base de données | PostgreSQL · PLpgSQL |
+| Interface desktop | Python · Tkinter (base locale SQLite) |
+| Backend API REST | Node.js · Express · JWT · bcrypt |
+| Base de données (backend) | PostgreSQL · PL/pgSQL |
+
+> ℹ️ Le backend (Node.js) et l'interface Tkinter sont deux composants indépendants : le backend utilise PostgreSQL, l'interface Tkinter une base SQLite locale.
 
 ---
 
@@ -30,26 +33,28 @@ Application de gestion scolaire avec interface desktop **Tkinter**, backend **Dj
 
 ```
 EcoleManager/
-├── schoolmanagbackend/   # API REST Django
-│   ├── manage.py
-│   └── requirements.txt
-└── src/                  # Interface Tkinter
+├── schoolmanagbackend/   # API REST Node.js / Express
+│   ├── index.js
+│   ├── package.json
+│   ├── db_schema.sql
+│   └── src/
+└── src/                  # Interface Tkinter (Python)
+    └── app.py
 ```
 
 ---
 
 ## Installation
 
-**Prérequis :** Python >= 3.10 · PostgreSQL >= 14
+**Prérequis :** Node.js ≥ 18 · PostgreSQL ≥ 14 · Python ≥ 3.10
 
 ```bash
 git clone https://github.com/RBH-06/EcoleManager.git
 cd EcoleManager/schoolmanagbackend
-
-python -m venv venv
-source venv/bin/activate      # Windows : venv\Scripts\activate
-pip install -r requirements.txt
+npm install
 ```
+
+> L'interface Tkinter (`src/`) n'utilise que des modules de la bibliothèque standard Python — aucune installation supplémentaire n'est nécessaire.
 
 ---
 
@@ -58,20 +63,15 @@ pip install -r requirements.txt
 Créez un fichier `.env` dans `schoolmanagbackend/` :
 
 ```env
-SECRET_KEY=your_secret_key
-DEBUG=True
-DB_NAME=ecolemanager_db
-DB_USER=postgres
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_PORT=5432
+PORT=3000
+DATABASE_URL=postgres://admin:admin@localhost:5432/school_db
+JWT_SECRET=your_jwt_secret
 ```
 
-Créez la base de données PostgreSQL :
+Créez la base de données PostgreSQL puis importez le schéma :
 
-```sql
-CREATE DATABASE ecolemanager_db;
-GRANT ALL PRIVILEGES ON DATABASE ecolemanager_db TO postgres;
+```bash
+psql -h localhost -U admin -d school_db -f db_schema.sql
 ```
 
 ---
@@ -79,15 +79,13 @@ GRANT ALL PRIVILEGES ON DATABASE ecolemanager_db TO postgres;
 ## Lancement
 
 ```bash
-# Backend
+# Backend (API REST sur http://localhost:3000)
 cd schoolmanagbackend
-python manage.py migrate
-python manage.py createsuperuser   # optionnel
-python manage.py runserver         # → http://localhost:8000
+npm start
 
 # Interface Tkinter
 cd ../src
-python main.py
+python app.py
 ```
 
 ---
@@ -96,13 +94,16 @@ python main.py
 
 | Méthode | Endpoint | Description |
 |---|---|---|
-| GET/POST | `/api/students/` | Élèves |
-| GET/POST | `/api/teachers/` | Enseignants |
-| GET/POST | `/api/classes/` | Classes |
-| GET/POST | `/api/grades/` | Notes |
-| POST | `/api/auth/login/` | Connexion |
-
-Admin Django : `http://localhost:8000/admin/`
+| POST | `/api/auth/register` | Inscription (admin) |
+| POST | `/api/auth/login` | Connexion (retourne un JWT) |
+| GET/POST | `/api/students` | Élèves |
+| GET/POST | `/api/teachers` | Enseignants |
+| GET/POST | `/api/classes` | Classes |
+| GET/POST | `/api/sessions` | Sessions |
+| GET/POST | `/api/enrollments` | Inscriptions |
+| GET/POST | `/api/attendance` | Présences |
+| GET/POST | `/api/payments` | Paiements |
+| GET/POST | `/api/trainings` | Formations |
 
 ---
 
